@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MAISON GONY · Slow, but fully lived</title>
+  <meta name="description" content="MAISON GONY — Illustration-based lifestyle brand from Gangneung, Korea. Posters, linen, tableware, stationery and more, made slowly by hand." />
+  <meta name="theme-color" content="#F5F1EA" />
+  <link rel="canonical" href="https://qr.maisongony.com/" />
+
+  <!-- 소셜 공유 카드 (Open Graph) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="MAISON GONY" />
+  <meta property="og:description" content="Slow, but fully lived — Illustration-based lifestyle brand." />
+  <meta property="og:url" content="https://qr.maisongony.com/" />
+  <meta property="og:image" content="https://qr.maisongony.com/assets/og-card.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- 파비콘 (별도 파일 없이 내장 SVG) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232A2621'/%3E%3Ctext x='32' y='45' font-size='38' text-anchor='middle' fill='%23F5F1EA' font-family='Georgia,serif'%3Eg%3C/text%3E%3C/svg%3E" />
+
+  <style>
+    /* ====== 디자인 토큰 (색상·여백) — maisongony.com 톤 기반 ====== */
+    :root {
+      --bg: #F5F1EA;        /* 따뜻한 크림 배경 */
+      --surface: #FFFFFF;   /* 카드 표면 */
+      --ink: #2A2621;       /* 본문 텍스트 (웜 블랙) */
+      --muted: #948B7C;     /* 보조 텍스트 */
+      --line: #E7E0D4;      /* 구분선/테두리 */
+      --accent: #B08968;    /* 포인트 (어스톤) */
+      --btn: #2A2621;       /* 기본 버튼 */
+      --radius: 12px;
+      --maxw: 460px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { -webkit-text-size-adjust: 100%; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo",
+                   "Noto Sans KR", "Malgun Gothic", "PingFang SC", "Microsoft YaHei",
+                   Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    .wrap {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 28px 24px 56px;
+    }
+
+    /* ====== 언어 선택 ====== */
+    .lang {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      margin-bottom: 40px;
+    }
+    .lang-btn {
+      font: inherit;
+      font-size: 13px;
+      letter-spacing: 0.02em;
+      color: var(--muted);
+      background: transparent;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 7px 14px;
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+    .lang-btn:hover { color: var(--ink); border-color: var(--ink); }
+    .lang-btn.is-active {
+      color: var(--bg);
+      background: var(--ink);
+      border-color: var(--ink);
+    }
+
+    /* ====== 헤더 (워드마크) ====== */
+    .hero { text-align: center; margin-bottom: 26px; }
+    .wordmark {
+      font-size: 27px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-indent: 0.22em;   /* 마지막 글자 자간 보정 */
+      text-transform: uppercase;
+    }
+    .tagline {
+      margin-top: 14px;
+      font-size: 13px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .descriptor {
+      margin-top: 8px;
+      font-size: 13.5px;
+      color: var(--muted);
+    }
+
+    .rule {
+      border: none;
+      border-top: 1px solid var(--line);
+      width: 40px;
+      margin: 28px auto;
+    }
+
+    /* ====== 본문 섹션 ====== */
+    .intro {
+      text-align: center;
+      font-size: 15.5px;
+      color: #43403a;
+      margin-bottom: 36px;
+    }
+
+    .block { text-align: center; margin-bottom: 38px; }
+    .label {
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .products {
+      font-size: 15px;
+      color: var(--ink);
+      line-height: 1.9;
+    }
+
+    /* ====== 버튼 ====== */
+    .actions { display: flex; flex-direction: column; gap: 10px; margin-bottom: 40px; }
+    .btn {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      padding: 15px 18px;
+      border-radius: var(--radius);
+      border: 1px solid var(--ink);
+      color: var(--ink);
+      background: var(--surface);
+      transition: all 0.18s ease;
+    }
+    .btn:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(42,38,33,0.08); }
+    .btn-primary { background: var(--btn); color: var(--bg); border-color: var(--btn); }
+    .btn-ghost { border-color: var(--line); color: var(--muted); background: transparent; }
+    .btn-ghost:hover { color: var(--ink); border-color: var(--ink); }
+
+    /* ====== 방문 안내 ====== */
+    .visit {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px 22px;
+      margin-bottom: 40px;
+    }
+    .visit .label { text-align: center; }
+    .info { margin: 4px 0 18px; }
+    .info .row {
+      display: grid;
+      grid-template-columns: 84px 1fr;
+      gap: 10px;
+      padding: 9px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 14.5px;
+    }
+    .info .row:last-child { border-bottom: none; }
+    .info dt { color: var(--muted); }
+    .info dd { color: var(--ink); }
+    .info dd a { color: var(--ink); text-decoration: none; }
+    .info dd a:hover { text-decoration: underline; }
+
+    /* ====== 푸터 ====== */
+    .foot { text-align: center; padding-top: 8px; }
+    .wordmark-sm {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+    .copy { margin-top: 8px; font-size: 12px; color: var(--muted); }
+
+    /* 데스크톱에서도 모바일 카드 느낌 유지 + 여유 */
+    @media (min-width: 600px) {
+      .wrap { padding-top: 56px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- 언어 선택 -->
+    <nav class="lang" aria-label="Language">
+      <button class="lang-btn" data-lang="ko" type="button">한국어</button>
+      <button class="lang-btn" data-lang="en" type="button">English</button>
+      <button class="lang-btn" data-lang="zh" type="button">中文</button>
+    </nav>
+
+    <!-- 헤더 -->
+    <header class="hero">
+      <h1 class="wordmark">MAISON GONY</h1>
+      <p class="tagline" data-i18n="tagline"></p>
+      <p class="descriptor" data-i18n="descriptor"></p>
+    </header>
+
+    <hr class="rule" />
+
+    <!-- 브랜드 소개 -->
+    <section class="intro">
+      <p data-i18n="intro"></p>
+    </section>
+
+    <!-- 제품 -->
+    <section class="block">
+      <h2 class="label" data-i18n="productsTitle"></h2>
+      <p class="products" data-i18n="products"></p>
+    </section>
+
+    <!-- 링크 버튼 -->
+    <section class="actions">
+      <a id="link-shop" class="btn btn-primary" data-i18n="shop" target="_blank" rel="noopener"></a>
+      <a id="link-instagram" class="btn" data-i18n="instagram" target="_blank" rel="noopener"></a>
+      <a id="link-journal" class="btn" data-i18n="journal" target="_blank" rel="noopener"></a>
+    </section>
+
+    <!-- 방문 안내 -->
+    <section class="visit" id="visit">
+      <h2 class="label" data-i18n="visitTitle"></h2>
+      <dl class="info">
+        <div class="row" id="row-address"><dt data-i18n="addressLabel"></dt><dd id="v-address"></dd></div>
+        <div class="row" id="row-hours"><dt data-i18n="hoursLabel"></dt><dd id="v-hours"></dd></div>
+        <div class="row" id="row-phone"><dt data-i18n="phoneLabel"></dt><dd><a id="v-phone" href=""></a></dd></div>
+      </dl>
+      <a id="link-map" class="btn btn-ghost" data-i18n="mapBtn" target="_blank" rel="noopener"></a>
+    </section>
+
+    <!-- 푸터 -->
+    <footer class="foot">
+      <p class="wordmark-sm">MAISON GONY</p>
+      <p class="copy">© <span id="year"></span> MAISON GONY. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script>
+    /* =====================================================================
+       ⚙️  설정 (CONFIG) — 여기만 수정하면 됩니다
+       ===================================================================== */
+    var CONFIG = {
+      // Google Analytics 4 측정 ID. 발급 전에는 그대로 두세요(추적 비활성).
+      GA_ID: 'G-XXXXXXXXXX',
+
+      // 버튼이 연결될 링크. 비워두면("") 해당 버튼은 자동으로 숨겨집니다.
+      links: {
+        shop:      'https://maisongony.com',
+        instagram: 'https://www.instagram.com/maison.gony/', // ← 실제 계정으로 확인/수정
+        journal:   'https://maisongony.com/journal',         // ← 없으면 '' 로
+        map:       'https://map.naver.com/p/search/메종고니' // ← 실제 지도 링크로 수정
+      },
+
+      // 방문 안내. 비워두면("") 해당 줄은 자동으로 숨겨집니다.
+      visit: {
+        address: '강원특별자치도 강릉시 ○○○',   // ← 실제 주소로 수정
+        hours:   '11:00 – 19:00',                // ← 실제 운영시간으로 수정
+        phone:   '0507-1446-5432'
+      }
+    };
+
+    /* =====================================================================
+       🌐  다국어 텍스트 (한국어 / English / 中文)
+       ===================================================================== */
+    var I18N = {
+      ko: {
+        htmlLang: 'ko',
+        tagline: '느리지만, 충분히 살아가는 삶',
+        descriptor: '일러스트레이션 기반 라이프스타일 브랜드',
+        intro: '일러스트레이션에서 시작된 작은 장면이 일상의 물건이 됩니다. 강릉 바다에서 시작한 메종고니는 한 장 한 장 실크스크린으로 천천히 만듭니다.',
+        productsTitle: '메종고니의 물건',
+        products: '포스터 · 패브릭 포스터 · 리넨 · 테이블웨어 · 문구 · 액세서리',
+        shop: '온라인 스토어',
+        instagram: '인스타그램',
+        journal: '저널 보기',
+        visitTitle: '방문 안내',
+        addressLabel: '주소',
+        hoursLabel: '운영시간',
+        phoneLabel: '전화',
+        mapBtn: '지도 보기'
+      },
+      en: {
+        htmlLang: 'en',
+        tagline: 'Slow, but fully lived',
+        descriptor: 'Illustration-based Lifestyle Brand',
+        intro: 'Small scenes that begin as illustrations become the objects of everyday life. Born by the sea in Gangneung, MAISON GONY makes each piece slowly — silk-screened one by one.',
+        productsTitle: 'What We Make',
+        products: 'Posters · Fabric Posters · Linen · Tableware · Stationery · Accessories',
+        shop: 'Online Shop',
+        instagram: 'Instagram',
+        journal: 'Read the Journal',
+        visitTitle: 'Visit Us',
+        addressLabel: 'Address',
+        hoursLabel: 'Hours',
+        phoneLabel: 'Phone',
+        mapBtn: 'View on Map'
+      },
+      zh: {
+        htmlLang: 'zh',
+        tagline: '慢生活，却足够丰盈',
+        descriptor: '以插画为灵感的生活方式品牌',
+        intro: '源于插画的小小场景，化作日常生活中的物件。诞生于江陵海边的 MAISON GONY，以丝网印刷逐一手作，慢慢完成每一件作品。',
+        productsTitle: '我们的作品',
+        products: '海报 · 布艺海报 · 亚麻织物 · 餐具 · 文具 · 配饰',
+        shop: '线上商店',
+        instagram: 'Instagram',
+        journal: '品牌日志',
+        visitTitle: '到店信息',
+        addressLabel: '地址',
+        hoursLabel: '营业时间',
+        phoneLabel: '电话',
+        mapBtn: '查看地图'
+      }
+    };
+
+    /* =====================================================================
+       이 아래는 동작 코드입니다 (수정 불필요)
+       ===================================================================== */
+
+    // --- 작은 도우미들 ---
+    function setHref(id, url) {
+      var el = document.getElementById(id);
+      if (!el) return;
+      if (url) { el.href = url; }
+      else { el.style.display = 'none'; } // 링크 없으면 버튼 숨김
+    }
+    function setRow(rowId, valId, value, isLink) {
+      var val = document.getElementById(valId);
+      if (value) {
+        if (isLink) {
+          val.textContent = value;
+          val.href = 'tel:' + value.replace(/[^0-9+]/g, '');
+        } else {
+          val.textContent = value;
+        }
+      } else {
+        var row = document.getElementById(rowId);
+        if (row) row.style.display = 'none'; // 값 없으면 줄 숨김
+      }
+    }
+
+    // --- CONFIG 적용 ---
+    function applyConfig() {
+      setHref('link-shop', CONFIG.links.shop);
+      setHref('link-instagram', CONFIG.links.instagram);
+      setHref('link-journal', CONFIG.links.journal);
+      setHref('link-map', CONFIG.links.map);
+      setRow('row-address', 'v-address', CONFIG.visit.address, false);
+      setRow('row-hours', 'v-hours', CONFIG.visit.hours, false);
+      setRow('row-phone', 'v-phone', CONFIG.visit.phone, true);
+      document.getElementById('year').textContent = new Date().getFullYear();
+    }
+
+    // --- 언어 전환 ---
+    function setLang(lang) {
+      if (!I18N[lang]) lang = 'en';
+      var dict = I18N[lang];
+      document.documentElement.lang = dict.htmlLang;
+      document.querySelectorAll('[data-i18n]').forEach(function (el) {
+        var key = el.getAttribute('data-i18n');
+        if (dict[key] != null) el.textContent = dict[key];
+      });
+      document.querySelectorAll('.lang-btn').forEach(function (b) {
+        var on = b.getAttribute('data-lang') === lang;
+        b.classList.toggle('is-active', on);
+        b.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+      try { localStorage.setItem('mg-lang', lang); } catch (e) {}
+    }
+
+    // --- 첫 방문 시 언어 자동 감지 (저장된 값 우선) ---
+    function detectLang() {
+      try {
+        var saved = localStorage.getItem('mg-lang');
+        if (saved && I18N[saved]) return saved;
+      } catch (e) {}
+      var n = (navigator.language || 'en').toLowerCase();
+      if (n.indexOf('ko') === 0) return 'ko';
+      if (n.indexOf('zh') === 0) return 'zh';
+      return 'en';
+    }
+
+    // --- Google Analytics 4 (측정 ID가 설정된 경우에만 로드) ---
+    function initGA() {
+      var id = CONFIG.GA_ID;
+      if (!id || id.indexOf('G-') !== 0 || id === 'G-XXXXXXXXXX') return;
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + id;
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { dataLayer.push(arguments); };
+      gtag('js', new Date());
+      gtag('config', id);
+    }
+
+    // --- 초기화 ---
+    applyConfig();
+    setLang(detectLang());
+    document.querySelectorAll('.lang-btn').forEach(function (b) {
+      b.addEventListener('click', function () { setLang(b.getAttribute('data-lang')); });
+    });
+    initGA();
+  </script>
+</body>
+</html>
