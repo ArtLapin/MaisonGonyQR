@@ -4,248 +4,262 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MAISON GONY · Slow, but fully lived</title>
-  <meta name="description" content="MAISON GONY — Illustration-based lifestyle brand from Gangneung, Korea. Posters, linen, tableware, stationery and more, made slowly by hand." />
-  <meta name="theme-color" content="#F5F1EA" />
+  <meta name="description" content="MAISON GONY — 강릉에서 시작된 일러스트 기반 라이프스타일 브랜드. 포스터·문구·패브릭·도자기·생활 소품을 천천히 만듭니다." />
+  <meta name="theme-color" content="#0162CE" />
   <link rel="canonical" href="https://qr.maisongony.com/" />
 
   <!-- 소셜 공유 카드 (Open Graph) -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="MAISON GONY" />
-  <meta property="og:description" content="Slow, but fully lived — Illustration-based lifestyle brand." />
+  <meta property="og:description" content="Slow, but fully lived — 강릉의 일러스트 기반 라이프스타일 브랜드." />
   <meta property="og:url" content="https://qr.maisongony.com/" />
   <meta property="og:image" content="https://qr.maisongony.com/assets/og-card.png" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- 파비콘 (별도 파일 없이 내장 SVG) -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232A2621'/%3E%3Ctext x='32' y='45' font-size='38' text-anchor='middle' fill='%23F5F1EA' font-family='Georgia,serif'%3Eg%3C/text%3E%3C/svg%3E" />
+  <!-- 파비콘 (내장 SVG) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230162CE'/%3E%3Ctext x='32' y='46' font-size='40' text-anchor='middle' fill='%23FFFFFF' font-family='SUIT,sans-serif'%3Eg%3C/text%3E%3C/svg%3E" />
+
+  <!-- SUIT 웹폰트 (실패 시 시스템 폰트로 폴백) -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/variable/woff2/SUIT-Variable.css" />
 
   <style>
-    /* ====== 디자인 토큰 (색상·여백) — maisongony.com 톤 기반 ====== */
+    /* ====== 디자인 토큰 — maisongony.com 톤 (블루 메인 / 화이트) ====== */
     :root {
-      --bg: #F5F1EA;        /* 따뜻한 크림 배경 */
-      --surface: #FFFFFF;   /* 카드 표면 */
-      --ink: #2A2621;       /* 본문 텍스트 (웜 블랙) */
-      --muted: #948B7C;     /* 보조 텍스트 */
-      --line: #E7E0D4;      /* 구분선/테두리 */
-      --accent: #B08968;    /* 포인트 (어스톤) */
-      --btn: #2A2621;       /* 기본 버튼 */
-      --radius: 12px;
-      --maxw: 460px;
+      --bg: #F8F9FA;        /* 배경 (화이트) */
+      --surface: #FFFFFF;   /* 카드/표면 */
+      --blue: #0162CE;      /* 메인 컬러 */
+      --ink: #23262B;       /* 본문 텍스트 */
+      --muted: #868D96;     /* 보조 텍스트 */
+      --line: #E7E9EC;      /* 구분선 */
+      --maxw: 480px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { -webkit-text-size-adjust: 100%; }
 
     body {
       background: var(--bg);
       color: var(--ink);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo",
-                   "Noto Sans KR", "Malgun Gothic", "PingFang SC", "Microsoft YaHei",
-                   Roboto, Helvetica, Arial, sans-serif;
-      line-height: 1.65;
+      font-family: 'SUIT Variable', 'SUIT', -apple-system, BlinkMacSystemFont,
+                   "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", Roboto, sans-serif;
+      font-weight: 400;            /* 굵기는 Regular 기준, Bold 미사용 */
+      line-height: 1.7;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
 
-    .wrap {
-      max-width: var(--maxw);
-      margin: 0 auto;
-      padding: 28px 24px 56px;
-    }
+    img { max-width: 100%; display: block; }
+    .page { max-width: var(--maxw); margin: 0 auto; background: var(--bg); min-height: 100vh; }
 
-    /* ====== 언어 선택 ====== */
-    .lang {
-      display: flex;
-      justify-content: center;
-      gap: 6px;
-      margin-bottom: 40px;
+    /* ====== 상단바 (워드마크 + 언어) ====== */
+    .topbar {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 15px 20px; border-bottom: 1px solid var(--line); background: var(--surface);
     }
+    .wordmark { font-size: 15px; letter-spacing: 0.14em; color: var(--ink); text-decoration: none; }
+    .lang { display: flex; gap: 10px; }
     .lang-btn {
-      font: inherit;
-      font-size: 13px;
-      letter-spacing: 0.02em;
-      color: var(--muted);
-      background: transparent;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 7px 14px;
-      cursor: pointer;
-      transition: all 0.18s ease;
+      font: inherit; font-size: 12px; letter-spacing: 0.02em;
+      color: var(--muted); background: none; border: none; padding: 2px; cursor: pointer;
+      transition: color 0.15s ease;
     }
-    .lang-btn:hover { color: var(--ink); border-color: var(--ink); }
-    .lang-btn.is-active {
-      color: var(--bg);
-      background: var(--ink);
-      border-color: var(--ink);
-    }
+    .lang-btn:hover { color: var(--ink); }
+    .lang-btn.is-active { color: var(--blue); }
 
-    /* ====== 헤더 (워드마크) ====== */
-    .hero { text-align: center; margin-bottom: 26px; }
-    .wordmark {
-      font-size: 27px;
-      font-weight: 600;
-      letter-spacing: 0.22em;
-      text-indent: 0.22em;   /* 마지막 글자 자간 보정 */
-      text-transform: uppercase;
+    /* ====== 히어로 (블루) ====== */
+    .hero { background: var(--blue); color: #fff; padding: 32px 24px 38px; text-align: center; }
+    .hero-media {
+      position: relative; max-width: 220px; margin: 0 auto 16px;
+      min-height: 118px; display: flex; align-items: center; justify-content: center;
     }
-    .tagline {
-      margin-top: 14px;
-      font-size: 13px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--accent);
+    .hero-media.filled { max-width: none; width: 100%; height: 184px; margin-bottom: 18px; }
+    .hero-media.filled img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-tag {
+      position: absolute; top: 0; right: 0; font-size: 11px;
+      background: rgba(255,255,255,0.18); color: #fff; padding: 2px 8px;
     }
-    .descriptor {
-      margin-top: 8px;
-      font-size: 13.5px;
-      color: var(--muted);
-    }
+    .slogan { font-size: 12px; letter-spacing: 0.2em; font-weight: 300; opacity: 0.95; }
+    .hook { font-size: 23px; line-height: 1.45; font-weight: 300; margin-top: 10px; }
 
-    .rule {
-      border: none;
-      border-top: 1px solid var(--line);
-      width: 40px;
-      margin: 28px auto;
-    }
+    /* ====== 본문 ====== */
+    .wrap { padding: 0 20px 8px; }
+    .actions { display: flex; flex-direction: column; gap: 10px; margin: 22px 0 8px; }
 
-    /* ====== 본문 섹션 ====== */
-    .intro {
-      text-align: center;
-      font-size: 15.5px;
-      color: #43403a;
-      margin-bottom: 36px;
-    }
-
-    .block { text-align: center; margin-bottom: 38px; }
-    .label {
-      font-size: 11.5px;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 12px;
-    }
-    .products {
-      font-size: 15px;
-      color: var(--ink);
-      line-height: 1.9;
-    }
-
-    /* ====== 버튼 ====== */
-    .actions { display: flex; flex-direction: column; gap: 10px; margin-bottom: 40px; }
     .btn {
-      display: block;
-      text-align: center;
-      text-decoration: none;
-      font-size: 15px;
-      font-weight: 500;
-      letter-spacing: 0.02em;
-      padding: 15px 18px;
-      border-radius: var(--radius);
-      border: 1px solid var(--ink);
-      color: var(--ink);
-      background: var(--surface);
-      transition: all 0.18s ease;
+      display: block; text-align: center; text-decoration: none;
+      font-size: 14px; font-weight: 400; padding: 14px 16px;
+      border: 1px solid var(--blue); color: var(--blue); background: var(--surface);
+      transition: opacity 0.15s ease;            /* 직각 모서리 (라운드 없음) */
     }
-    .btn:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(42,38,33,0.08); }
-    .btn-primary { background: var(--btn); color: var(--bg); border-color: var(--btn); }
-    .btn-ghost { border-color: var(--line); color: var(--muted); background: transparent; }
-    .btn-ghost:hover { color: var(--ink); border-color: var(--ink); }
+    .btn:hover { opacity: 0.78; }
+    .btn-primary { background: var(--blue); color: #fff; }
+    .btn-ghost { border-color: #D8DCE1; color: #5A6068; }
+
+    .section { margin: 40px 0; }
+    .eyebrow { font-size: 12px; letter-spacing: 0.14em; color: var(--blue); margin-bottom: 12px; text-align: center; }
+    .intro-body { font-size: 14px; line-height: 1.85; color: #3A3F47; text-align: center; }
+
+    .why-item { display: flex; gap: 13px; align-items: flex-start; margin-bottom: 16px; }
+    .why-item:last-child { margin-bottom: 0; }
+    .why-item p { font-size: 14px; line-height: 1.6; color: #3A3F47; }
+
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .p-name { font-size: 14px; margin-top: 8px; }
+    .p-desc { font-size: 11.5px; color: var(--muted); margin-top: 2px; }
+
+    /* 이미지 플레이스홀더 (자산 추가 전) */
+    .media {
+      position: relative; background: var(--surface); border: 1px dashed #C4CDD8;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 5px; color: #9AA3AE; text-align: center;
+    }
+    .media.filled { border: none; }
+    .media span { font-size: 11px; }
+
+    /* 인라인 아이콘 (외부 폰트 의존 없음) */
+    .ic, .ph-ic { stroke: currentColor; fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+    .why-item svg.ic { width: 24px; height: 24px; flex: none; color: var(--blue); margin-top: 1px; }
+    .media svg.ph-ic { width: 24px; height: 24px; stroke-width: 1.4; }
 
     /* ====== 방문 안내 ====== */
-    .visit {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 24px 22px;
-      margin-bottom: 40px;
-    }
-    .visit .label { text-align: center; }
-    .info { margin: 4px 0 18px; }
+    .info { margin: 0; }
     .info .row {
-      display: grid;
-      grid-template-columns: 84px 1fr;
-      gap: 10px;
-      padding: 9px 0;
-      border-bottom: 1px solid var(--line);
-      font-size: 14.5px;
+      display: grid; grid-template-columns: 66px 1fr; gap: 8px;
+      padding: 9px 0; border-bottom: 1px solid var(--line); font-size: 13.5px;
     }
     .info .row:last-child { border-bottom: none; }
     .info dt { color: var(--muted); }
     .info dd { color: var(--ink); }
     .info dd a { color: var(--ink); text-decoration: none; }
     .info dd a:hover { text-decoration: underline; }
+    .map-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px; }
 
     /* ====== 푸터 ====== */
-    .foot { text-align: center; padding-top: 8px; }
-    .wordmark-sm {
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--ink);
-    }
-    .copy { margin-top: 8px; font-size: 12px; color: var(--muted); }
-
-    /* 데스크톱에서도 모바일 카드 느낌 유지 + 여유 */
-    @media (min-width: 600px) {
-      .wrap { padding-top: 56px; }
-    }
+    .foot { text-align: center; border-top: 1px solid var(--line); margin-top: 40px; padding: 22px 0 28px; }
+    .foot .wordmark-sm { font-size: 13px; letter-spacing: 0.14em; color: var(--ink); }
+    .foot .copy { font-size: 11px; color: var(--muted); margin-top: 6px; }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <!-- 언어 선택 -->
-    <nav class="lang" aria-label="Language">
-      <button class="lang-btn" data-lang="ko" type="button">한국어</button>
-      <button class="lang-btn" data-lang="en" type="button">English</button>
-      <button class="lang-btn" data-lang="zh" type="button">中文</button>
-    </nav>
+  <div class="page">
 
-    <!-- 헤더 -->
-    <header class="hero">
-      <h1 class="wordmark">MAISON GONY</h1>
-      <p class="tagline" data-i18n="tagline"></p>
-      <p class="descriptor" data-i18n="descriptor"></p>
+    <!-- 상단바 -->
+    <header class="topbar">
+      <a class="wordmark" id="link-home" href="#">MAISON GONY</a>
+      <nav class="lang" aria-label="Language">
+        <button class="lang-btn" data-lang="ko" type="button">KR</button>
+        <button class="lang-btn" data-lang="en" type="button">EN</button>
+        <button class="lang-btn" data-lang="zh" type="button">中文</button>
+      </nav>
     </header>
 
-    <hr class="rule" />
-
-    <!-- 브랜드 소개 -->
-    <section class="intro">
-      <p data-i18n="intro"></p>
+    <!-- 히어로 -->
+    <section class="hero">
+      <div class="hero-media" id="hero-media">
+        <span class="hero-tag" id="hero-tag" data-i18n="phHero">임시 이미지</span>
+        <svg viewBox="0 0 200 100" width="100%" style="max-width:200px" role="img" aria-label="Gony illustration placeholder">
+          <path d="M6 82 q11 -6 22 0 t22 0 t22 0 t22 0 t22 0 t22 0 t22 0" fill="none" stroke="#ffffff" stroke-opacity=".55" stroke-width="2"/>
+          <path d="M6 91 q11 -6 22 0 t22 0 t22 0 t22 0 t22 0 t22 0 t22 0" fill="none" stroke="#ffffff" stroke-opacity=".33" stroke-width="2"/>
+          <g stroke="#ffffff" stroke-width="2" fill="none">
+            <rect x="138" y="46" width="40" height="34"/>
+            <path d="M133 47 L158 28 L183 47 Z" fill="#ffffff" fill-opacity=".18"/>
+            <rect x="152" y="62" width="12" height="18" fill="#ffffff" fill-opacity=".22"/>
+          </g>
+          <g stroke="#ffffff" stroke-width="2" fill="none">
+            <ellipse cx="60" cy="64" rx="27" ry="14" fill="#ffffff" fill-opacity=".12"/>
+            <path d="M48 56 C40 48 41 38 47 32"/>
+            <circle cx="47" cy="30" r="5" fill="#ffffff" fill-opacity=".12"/>
+          </g>
+          <path d="M42 29 L35 31 L42 33 Z" fill="#CFE0F7"/>
+        </svg>
+      </div>
+      <p class="slogan">Slow, but fully lived</p>
+      <h1 class="hook" data-i18n="heroHook"></h1>
     </section>
 
-    <!-- 제품 -->
-    <section class="block">
-      <h2 class="label" data-i18n="productsTitle"></h2>
-      <p class="products" data-i18n="products"></p>
-    </section>
+    <main class="wrap">
 
-    <!-- 링크 버튼 -->
-    <section class="actions">
-      <a id="link-shop" class="btn btn-primary" data-i18n="shop" target="_blank" rel="noopener"></a>
-      <a id="link-instagram" class="btn" data-i18n="instagram" target="_blank" rel="noopener"></a>
-      <a id="link-journal" class="btn" data-i18n="journal" target="_blank" rel="noopener"></a>
-    </section>
+      <!-- 주요 링크 -->
+      <section class="actions">
+        <a class="btn btn-primary" id="link-shop" target="_blank" rel="noopener" data-i18n="shop"></a>
+        <a class="btn" id="link-instagram" target="_blank" rel="noopener"><span data-i18n="instagram"></span> <span style="opacity:.65">@maisongony</span></a>
+      </section>
 
-    <!-- 방문 안내 -->
-    <section class="visit" id="visit">
-      <h2 class="label" data-i18n="visitTitle"></h2>
-      <dl class="info">
-        <div class="row" id="row-address"><dt data-i18n="addressLabel"></dt><dd id="v-address"></dd></div>
-        <div class="row" id="row-hours"><dt data-i18n="hoursLabel"></dt><dd id="v-hours"></dd></div>
-        <div class="row" id="row-phone"><dt data-i18n="phoneLabel"></dt><dd><a id="v-phone" href=""></a></dd></div>
-      </dl>
-      <a id="link-map" class="btn btn-ghost" data-i18n="mapBtn" target="_blank" rel="noopener"></a>
-    </section>
+      <!-- 브랜드 소개 -->
+      <section class="section">
+        <h2 class="eyebrow" data-i18n="introTitle"></h2>
+        <p class="intro-body" data-i18n="introBody"></p>
+      </section>
+
+      <!-- Why Gony? -->
+      <section class="section">
+        <h2 class="eyebrow" data-i18n="whyTitle"></h2>
+        <div class="why-item">
+          <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 13 C6.5 8.5 9 8.5 12 12 C15 8.5 17.5 8.5 21 13"/></svg>
+          <p data-i18n="why1"></p>
+        </div>
+        <div class="why-item">
+          <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11 L12 4 L20 11"/><path d="M6 10 V19 H18 V10"/></svg>
+          <p data-i18n="why2"></p>
+        </div>
+        <div class="why-item">
+          <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10 q3 -3.5 6 0 t6 0 t6 0"/><path d="M3 15 q3 -3.5 6 0 t6 0 t6 0"/></svg>
+          <p data-i18n="why3"></p>
+        </div>
+      </section>
+
+      <!-- 제품 미리보기 -->
+      <section class="section">
+        <h2 class="eyebrow" data-i18n="productsTitle"></h2>
+        <div class="grid">
+          <div class="p-card">
+            <div class="media" id="p-media-0" style="height:84px"><svg class="ph-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14"/><circle cx="8.5" cy="10" r="1.8"/><path d="M3 17 L9 12 L13 15 L17 11 L21 15"/></svg><span data-i18n="phImage">이미지 준비중</span></div>
+            <div class="p-name">Poster &amp; Postcard</div>
+            <div class="p-desc" data-i18n="p1desc"></div>
+          </div>
+          <div class="p-card">
+            <div class="media" id="p-media-1" style="height:84px"><svg class="ph-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14"/><circle cx="8.5" cy="10" r="1.8"/><path d="M3 17 L9 12 L13 15 L17 11 L21 15"/></svg><span data-i18n="phImage">이미지 준비중</span></div>
+            <div class="p-name">Eco Bag &amp; T-shirt</div>
+            <div class="p-desc" data-i18n="p2desc"></div>
+          </div>
+          <div class="p-card">
+            <div class="media" id="p-media-2" style="height:84px"><svg class="ph-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14"/><circle cx="8.5" cy="10" r="1.8"/><path d="M3 17 L9 12 L13 15 L17 11 L21 15"/></svg><span data-i18n="phImage">이미지 준비중</span></div>
+            <div class="p-name">Ceramic Goods</div>
+            <div class="p-desc" data-i18n="p3desc"></div>
+          </div>
+          <div class="p-card">
+            <div class="media" id="p-media-3" style="height:84px"><svg class="ph-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14"/><circle cx="8.5" cy="10" r="1.8"/><path d="M3 17 L9 12 L13 15 L17 11 L21 15"/></svg><span data-i18n="phImage">이미지 준비중</span></div>
+            <div class="p-name">Local Souvenirs</div>
+            <div class="p-desc" data-i18n="p4desc"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 방문 안내 -->
+      <section class="section" id="visit">
+        <h2 class="eyebrow" data-i18n="visitTitle"></h2>
+        <div class="media" id="store-media" style="height:118px;margin-bottom:16px"><svg class="ph-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9 L5.2 5 H18.8 L20 9"/><path d="M5 9 V19 H19 V9"/><path d="M4 9 H20"/></svg><span data-i18n="phStore">매장 사진 준비중</span></div>
+        <dl class="info">
+          <div class="row"><dt data-i18n="addressLabel"></dt><dd id="v-address"></dd></div>
+          <div class="row"><dt data-i18n="hoursLabel"></dt><dd data-i18n="hoursValue"></dd></div>
+          <div class="row" id="row-phone"><dt data-i18n="phoneLabel"></dt><dd><a id="v-phone" href=""></a></dd></div>
+          <div class="row"><dt data-i18n="parkingLabel"></dt><dd data-i18n="parkingValue"></dd></div>
+        </dl>
+        <div class="map-actions">
+          <a class="btn btn-ghost" id="link-naver" target="_blank" rel="noopener" data-i18n="naverBtn"></a>
+          <a class="btn btn-ghost" id="link-google" target="_blank" rel="noopener" data-i18n="googleBtn"></a>
+        </div>
+      </section>
+
+    </main>
 
     <!-- 푸터 -->
     <footer class="foot">
       <p class="wordmark-sm">MAISON GONY</p>
       <p class="copy">© <span id="year"></span> MAISON GONY. All rights reserved.</p>
     </footer>
+
   </div>
 
   <script>
@@ -256,19 +270,27 @@
       // Google Analytics 4 측정 ID. 발급 전에는 그대로 두세요(추적 비활성).
       GA_ID: 'G-XXXXXXXXXX',
 
-      // 버튼이 연결될 링크. 비워두면("") 해당 버튼은 자동으로 숨겨집니다.
+      // 버튼 링크. 비워두면("") 해당 버튼이 자동으로 숨겨집니다.
       links: {
         shop:      'https://maisongony.com',
-        instagram: 'https://www.instagram.com/maison.gony/', // ← 실제 계정으로 확인/수정
-        journal:   'https://maisongony.com/journal',         // ← 없으면 '' 로
-        map:       'https://map.naver.com/p/search/메종고니' // ← 실제 지도 링크로 수정
+        instagram: 'https://www.instagram.com/maisongony',
+        naverMap:  'https://map.naver.com/p/search/메종고니',
+        googleMap: 'https://www.google.com/maps/search/?api=1&query=강원특별자치도+강릉시+초당원길+19'
       },
 
-      // 방문 안내. 비워두면("") 해당 줄은 자동으로 숨겨집니다.
-      visit: {
-        address: '강원특별자치도 강릉시 ○○○',   // ← 실제 주소로 수정
-        hours:   '11:00 – 19:00',                // ← 실제 운영시간으로 수정
+      // 방문 안내 (언어 공통값)
+      contact: {
+        address: '강원특별자치도 강릉시 초당원길 19 이화해변상가',
         phone:   '0507-1446-5432'
+      },
+
+      // 이미지 경로. 비워두면 임시 플레이스홀더가 표시됩니다.
+      // 예) hero: 'assets/hero.jpg',  store: 'assets/store.jpg',
+      //     products: ['assets/poster.jpg', 'assets/ecobag.jpg', 'assets/ceramic.jpg', 'assets/souvenir.jpg']
+      images: {
+        hero:     '',
+        store:    '',
+        products: ['', '', '', '']
       }
     };
 
@@ -277,102 +299,150 @@
        ===================================================================== */
     var I18N = {
       ko: {
-        htmlLang: 'ko',
-        tagline: '느리지만, 충분히 살아가는 삶',
-        descriptor: '일러스트레이션 기반 라이프스타일 브랜드',
-        intro: '일러스트레이션에서 시작된 작은 장면이 일상의 물건이 됩니다. 강릉 바다에서 시작한 메종고니는 한 장 한 장 실크스크린으로 천천히 만듭니다.',
-        productsTitle: '메종고니의 물건',
-        products: '포스터 · 패브릭 포스터 · 리넨 · 테이블웨어 · 문구 · 액세서리',
+        heroHook: '강릉에서 만난\n고니의 작은 집',
         shop: '온라인 스토어',
         instagram: '인스타그램',
-        journal: '저널 보기',
-        visitTitle: '방문 안내',
+        introTitle: 'Maison Gony 는?',
+        introBody: '강릉 초당동에서 시작된 일러스트 기반 로컬 브랜드이자 작은 숍입니다. 직접 그린 고니 캐릭터와 동해의 분위기를 담아 포스터·문구·패브릭·도자기·생활 소품을 천천히 만듭니다.',
+        whyTitle: 'Why Gony?',
+        why1: '고니는 겨울마다 따뜻한 곳을 찾아 날아오는 철새입니다.',
+        why2: '메종고니의 고니는 강릉에 머물며 여행자에게 작은 쉼을 건넵니다.',
+        why3: '강릉의 자연과 계절, 바다와 일상이 고니의 이야기에 담깁니다.',
+        productsTitle: 'What you’ll find',
+        p1desc: '여행의 장면을 담은 일러스트',
+        p2desc: '일상에서 쓰는 패브릭 제품',
+        p3desc: '손으로 그린 도자기 소품',
+        p4desc: '강릉에서 만나는 기념품',
+        visitTitle: 'Visit us',
         addressLabel: '주소',
         hoursLabel: '운영시간',
+        hoursValue: '11:30–18:00 (목요일 휴무)',
         phoneLabel: '전화',
-        mapBtn: '지도 보기'
+        parkingLabel: '주차',
+        parkingValue: '가게 앞 1대 · 근처 공영주차장',
+        naverBtn: '네이버지도',
+        googleBtn: '구글맵',
+        phHero: '임시 이미지',
+        phImage: '이미지 준비중',
+        phStore: '매장 사진 준비중'
       },
       en: {
-        htmlLang: 'en',
-        tagline: 'Slow, but fully lived',
-        descriptor: 'Illustration-based Lifestyle Brand',
-        intro: 'Small scenes that begin as illustrations become the objects of everyday life. Born by the sea in Gangneung, MAISON GONY makes each piece slowly — silk-screened one by one.',
-        productsTitle: 'What We Make',
-        products: 'Posters · Fabric Posters · Linen · Tableware · Stationery · Accessories',
+        heroHook: 'Gony’s little house\nby the sea in Gangneung',
         shop: 'Online Shop',
         instagram: 'Instagram',
-        journal: 'Read the Journal',
-        visitTitle: 'Visit Us',
+        introTitle: 'About Maison Gony',
+        introBody: 'An illustration-based local brand and small shop that began in Chodang-dong, Gangneung. With our hand-drawn Gony character and the mood of the East Sea, we slowly make posters, stationery, fabric, tableware and everyday objects.',
+        whyTitle: 'Why Gony?',
+        why1: 'Gony is a migratory bird that flies to warmer places each winter.',
+        why2: 'Maison Gony’s Gony stays in Gangneung, offering travelers a small rest.',
+        why3: 'Gangneung’s nature, seasons, sea and daily life live within Gony’s story.',
+        productsTitle: 'What you’ll find',
+        p1desc: 'Illustrations of travel scenes',
+        p2desc: 'Everyday fabric goods',
+        p3desc: 'Hand-drawn ceramic pieces',
+        p4desc: 'Special souvenirs from Gangneung',
+        visitTitle: 'Visit us',
         addressLabel: 'Address',
         hoursLabel: 'Hours',
+        hoursValue: '11:30–18:00 (Closed Thu)',
         phoneLabel: 'Phone',
-        mapBtn: 'View on Map'
+        parkingLabel: 'Parking',
+        parkingValue: '1 spot in front · nearby public parking',
+        naverBtn: 'Naver Map',
+        googleBtn: 'Google Maps',
+        phHero: 'Placeholder',
+        phImage: 'Image coming soon',
+        phStore: 'Store photo coming soon'
       },
       zh: {
-        htmlLang: 'zh',
-        tagline: '慢生活，却足够丰盈',
-        descriptor: '以插画为灵感的生活方式品牌',
-        intro: '源于插画的小小场景，化作日常生活中的物件。诞生于江陵海边的 MAISON GONY，以丝网印刷逐一手作，慢慢完成每一件作品。',
-        productsTitle: '我们的作品',
-        products: '海报 · 布艺海报 · 亚麻织物 · 餐具 · 文具 · 配饰',
+        heroHook: '在江陵遇见的\n高尼的小家',
         shop: '线上商店',
         instagram: 'Instagram',
-        journal: '品牌日志',
+        introTitle: '关于 Maison Gony',
+        introBody: '始于江陵草堂洞的插画生活方式品牌与小店。以亲手绘制的高尼角色和东海的氛围，慢慢制作海报、文具、布艺、餐具与生活小物。',
+        whyTitle: 'Why Gony?',
+        why1: '高尼是每到冬天就飞往温暖之地的候鸟。',
+        why2: 'Maison Gony 的高尼停留在江陵，为旅人带来片刻歇息。',
+        why3: '江陵的自然、四季、大海与日常，都藏在高尼的故事里。',
+        productsTitle: '你会发现',
+        p1desc: '描绘旅行场景的插画',
+        p2desc: '日常使用的布艺单品',
+        p3desc: '手绘陶瓷小物',
+        p4desc: '来自江陵的特别纪念品',
         visitTitle: '到店信息',
         addressLabel: '地址',
         hoursLabel: '营业时间',
+        hoursValue: '11:30–18:00（周四休息）',
         phoneLabel: '电话',
-        mapBtn: '查看地图'
+        parkingLabel: '停车',
+        parkingValue: '店前1个车位 · 附近公共停车场',
+        naverBtn: 'Naver 地图',
+        googleBtn: 'Google 地图',
+        phHero: '临时图片',
+        phImage: '图片准备中',
+        phStore: '店铺照片准备中'
       }
     };
 
     /* =====================================================================
        이 아래는 동작 코드입니다 (수정 불필요)
        ===================================================================== */
+    function $(id) { return document.getElementById(id); }
 
-    // --- 작은 도우미들 ---
     function setHref(id, url) {
-      var el = document.getElementById(id);
+      var el = $(id);
       if (!el) return;
       if (url) { el.href = url; }
-      else { el.style.display = 'none'; } // 링크 없으면 버튼 숨김
-    }
-    function setRow(rowId, valId, value, isLink) {
-      var val = document.getElementById(valId);
-      if (value) {
-        if (isLink) {
-          val.textContent = value;
-          val.href = 'tel:' + value.replace(/[^0-9+]/g, '');
-        } else {
-          val.textContent = value;
-        }
-      } else {
-        var row = document.getElementById(rowId);
-        if (row) row.style.display = 'none'; // 값 없으면 줄 숨김
-      }
+      else { el.style.display = 'none'; }   // 링크 없으면 버튼 숨김
     }
 
-    // --- CONFIG 적용 ---
+    function setImage(id, src, alt) {
+      var el = $(id);
+      if (!el || !src) return;              // 이미지 없으면 플레이스홀더 유지
+      el.innerHTML = '';
+      el.classList.add('filled');
+      var img = document.createElement('img');
+      img.src = src; img.alt = alt || ''; img.loading = 'lazy';
+      img.style.cssText = 'width:100%;height:100%;object-fit:cover';
+      el.appendChild(img);
+    }
+
     function applyConfig() {
+      setHref('link-home', CONFIG.links.shop);
       setHref('link-shop', CONFIG.links.shop);
       setHref('link-instagram', CONFIG.links.instagram);
-      setHref('link-journal', CONFIG.links.journal);
-      setHref('link-map', CONFIG.links.map);
-      setRow('row-address', 'v-address', CONFIG.visit.address, false);
-      setRow('row-hours', 'v-hours', CONFIG.visit.hours, false);
-      setRow('row-phone', 'v-phone', CONFIG.visit.phone, true);
-      document.getElementById('year').textContent = new Date().getFullYear();
+      setHref('link-naver', CONFIG.links.naverMap);
+      setHref('link-google', CONFIG.links.googleMap);
+
+      var ph = $('v-phone');
+      if (ph) {
+        if (CONFIG.contact.phone) {
+          ph.textContent = CONFIG.contact.phone;
+          ph.href = 'tel:' + CONFIG.contact.phone.replace(/[^0-9+]/g, '');
+        } else {
+          var r = $('row-phone'); if (r) r.style.display = 'none';
+        }
+      }
+
+      setImage('hero-media', CONFIG.images.hero, 'Maison Gony');
+      if (CONFIG.images.hero) { var t = $('hero-tag'); if (t) t.style.display = 'none'; }
+      setImage('store-media', CONFIG.images.store, 'Maison Gony store');
+      (CONFIG.images.products || []).forEach(function (src, i) { setImage('p-media-' + i, src, ''); });
+
+      $('year').textContent = new Date().getFullYear();
     }
 
-    // --- 언어 전환 ---
     function setLang(lang) {
       if (!I18N[lang]) lang = 'en';
-      var dict = I18N[lang];
-      document.documentElement.lang = dict.htmlLang;
+      var d = I18N[lang];
+      document.documentElement.lang = lang;
       document.querySelectorAll('[data-i18n]').forEach(function (el) {
-        var key = el.getAttribute('data-i18n');
-        if (dict[key] != null) el.textContent = dict[key];
+        var k = el.getAttribute('data-i18n');
+        if (d[k] == null) return;
+        if (k === 'heroHook') { el.innerHTML = d[k].split('\n').join('<br>'); }
+        else { el.textContent = d[k]; }
       });
+      var addr = $('v-address'); if (addr) addr.textContent = CONFIG.contact.address;
       document.querySelectorAll('.lang-btn').forEach(function (b) {
         var on = b.getAttribute('data-lang') === lang;
         b.classList.toggle('is-active', on);
@@ -381,19 +451,14 @@
       try { localStorage.setItem('mg-lang', lang); } catch (e) {}
     }
 
-    // --- 첫 방문 시 언어 자동 감지 (저장된 값 우선) ---
     function detectLang() {
-      try {
-        var saved = localStorage.getItem('mg-lang');
-        if (saved && I18N[saved]) return saved;
-      } catch (e) {}
+      try { var s = localStorage.getItem('mg-lang'); if (s && I18N[s]) return s; } catch (e) {}
       var n = (navigator.language || 'en').toLowerCase();
       if (n.indexOf('ko') === 0) return 'ko';
       if (n.indexOf('zh') === 0) return 'zh';
       return 'en';
     }
 
-    // --- Google Analytics 4 (측정 ID가 설정된 경우에만 로드) ---
     function initGA() {
       var id = CONFIG.GA_ID;
       if (!id || id.indexOf('G-') !== 0 || id === 'G-XXXXXXXXXX') return;
@@ -407,7 +472,6 @@
       gtag('config', id);
     }
 
-    // --- 초기화 ---
     applyConfig();
     setLang(detectLang());
     document.querySelectorAll('.lang-btn').forEach(function (b) {
