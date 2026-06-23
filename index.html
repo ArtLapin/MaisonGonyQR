@@ -84,11 +84,11 @@
 
     /* ====== 본문 ====== */
     .wrap { padding: 0 20px 8px; }
-    .actions { display: flex; flex-direction: column; gap: 10px; margin: 22px 0 8px; }
+    .actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 22px 0 8px; }
 
     .btn {
       display: block; text-align: center; text-decoration: none;
-      font-size: 14px; font-weight: 400; padding: 14px 16px;
+      font-size: 19px; font-weight: 400; padding: 14px 16px;
       border: 1px solid var(--blue); color: var(--blue); background: var(--surface);
       transition: opacity 0.15s ease;            /* 직각 모서리 (라운드 없음) */
     }
@@ -182,7 +182,7 @@
 
       <!-- 주요 링크 -->
       <section class="actions">
-        <a class="btn btn-primary" id="link-shop" target="_blank" rel="noopener" data-i18n="shop"></a>
+        <a class="btn" id="link-shop" target="_blank" rel="noopener" data-i18n="shop"></a>
         <a class="btn" id="link-instagram" target="_blank" rel="noopener"><span data-i18n="instagram"></span> <span style="opacity:.65">@maisongony</span></a>
       </section>
 
