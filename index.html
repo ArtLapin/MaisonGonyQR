@@ -116,6 +116,8 @@
       gap: 5px; color: #9AA3AE; text-align: center;
     }
     .media.filled { border: none; }
+    /* 매장 사진은 잘림 없이 전체가 보이도록 (가로폭 100% · 원본 비율) */
+    #store-media.filled img { height: auto !important; }
     .media span { font-size: 11px; }
 
     /* 인라인 아이콘 (외부 폰트 의존 없음) */
@@ -240,7 +242,7 @@
       <!-- 방문 안내 -->
       <section class="section" id="visit">
         <h2 class="eyebrow" data-i18n="visitTitle"></h2>
-        <div class="media" id="store-media" style="height:118px;margin-bottom:16px"><svg class="ph-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9 L5.2 5 H18.8 L20 9"/><path d="M5 9 V19 H19 V9"/><path d="M4 9 H20"/></svg><span data-i18n="phStore">매장 사진 준비중</span></div>
+        <div class="media" id="store-media" style="min-height:118px;margin-bottom:16px"><svg class="ph-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9 L5.2 5 H18.8 L20 9"/><path d="M5 9 V19 H19 V9"/><path d="M4 9 H20"/></svg><span data-i18n="phStore">매장 사진 준비중</span></div>
         <dl class="info">
           <div class="row"><dt data-i18n="addressLabel"></dt><dd id="v-address"></dd></div>
           <div class="row"><dt data-i18n="hoursLabel"></dt><dd data-i18n="hoursValue"></dd></div>
@@ -290,7 +292,7 @@
       //     products: ['assets/poster.jpg', 'assets/ecobag.jpg', 'assets/ceramic.jpg', 'assets/souvenir.jpg']
       images: {
         hero:     '',
-        store:    '',
+        store:    'assets/store.webp',
         products: ['', '', '', '']
       }
     };
@@ -400,11 +402,13 @@
     function setImage(id, src, alt) {
       var el = $(id);
       if (!el || !src) return;              // 이미지 없으면 플레이스홀더 유지
+      var ph = el.innerHTML;                // 플레이스홀더 백업 (로드 실패 시 복원)
       el.innerHTML = '';
       el.classList.add('filled');
       var img = document.createElement('img');
       img.src = src; img.alt = alt || ''; img.loading = 'lazy';
       img.style.cssText = 'width:100%;height:100%;object-fit:cover';
+      img.onerror = function () { el.classList.remove('filled'); el.innerHTML = ph; };
       el.appendChild(img);
     }
 
