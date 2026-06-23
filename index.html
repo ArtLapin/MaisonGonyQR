@@ -67,20 +67,8 @@
     .lang-btn:hover { color: var(--ink); }
     .lang-btn.is-active { color: var(--blue); }
 
-    /* ====== 히어로 (블루) ====== */
-    .hero { background: var(--blue); color: #fff; padding: 32px 24px 38px; text-align: center; }
-    .hero-media {
-      position: relative; max-width: 220px; margin: 0 auto 16px;
-      min-height: 118px; display: flex; align-items: center; justify-content: center;
-    }
-    .hero-media.filled { max-width: none; width: 100%; height: 184px; margin-bottom: 18px; }
-    .hero-media.filled img { width: 100%; height: 100%; object-fit: cover; }
-    .hero-tag {
-      position: absolute; top: 0; right: 0; font-size: 11px;
-      background: rgba(255,255,255,0.18); color: #fff; padding: 2px 8px;
-    }
-    .slogan { font-size: 12px; letter-spacing: 0.2em; font-weight: 300; opacity: 0.95; }
-    .hook { font-size: 23px; line-height: 1.45; font-weight: 300; margin-top: 10px; }
+    /* ====== 메인 이미지 (본문 폭 전체) ====== */
+    .hero-img { width: 100%; }
 
     /* ====== 본문 ====== */
     .wrap { padding: 0 20px 8px; }
@@ -159,29 +147,8 @@
       </nav>
     </header>
 
-    <!-- 히어로 -->
-    <section class="hero">
-      <div class="hero-media" id="hero-media">
-        <span class="hero-tag" id="hero-tag" data-i18n="phHero">임시 이미지</span>
-        <svg viewBox="0 0 200 100" width="100%" style="max-width:200px" role="img" aria-label="Gony illustration placeholder">
-          <path d="M6 82 q11 -6 22 0 t22 0 t22 0 t22 0 t22 0 t22 0 t22 0" fill="none" stroke="#ffffff" stroke-opacity=".55" stroke-width="2"/>
-          <path d="M6 91 q11 -6 22 0 t22 0 t22 0 t22 0 t22 0 t22 0 t22 0" fill="none" stroke="#ffffff" stroke-opacity=".33" stroke-width="2"/>
-          <g stroke="#ffffff" stroke-width="2" fill="none">
-            <rect x="138" y="46" width="40" height="34"/>
-            <path d="M133 47 L158 28 L183 47 Z" fill="#ffffff" fill-opacity=".18"/>
-            <rect x="152" y="62" width="12" height="18" fill="#ffffff" fill-opacity=".22"/>
-          </g>
-          <g stroke="#ffffff" stroke-width="2" fill="none">
-            <ellipse cx="60" cy="64" rx="27" ry="14" fill="#ffffff" fill-opacity=".12"/>
-            <path d="M48 56 C40 48 41 38 47 32"/>
-            <circle cx="47" cy="30" r="5" fill="#ffffff" fill-opacity=".12"/>
-          </g>
-          <path d="M42 29 L35 31 L42 33 Z" fill="#CFE0F7"/>
-        </svg>
-      </div>
-      <p class="slogan">Slow, but fully lived</p>
-      <h1 class="hook" data-i18n="heroHook"></h1>
-    </section>
+    <!-- 메인 이미지 (본문 폭 전체) -->
+    <img class="hero-img" id="hero-img" alt="Maison Gony" />
 
     <main class="wrap">
 
@@ -293,7 +260,7 @@
       // 예) hero: 'assets/hero.jpg',  store: 'assets/store.jpg',
       //     products: ['assets/poster.jpg', 'assets/ecobag.jpg', 'assets/ceramic.jpg', 'assets/souvenir.jpg']
       images: {
-        hero:     '',
+        hero:     'assets/hero.webp',
         store:    'assets/store.webp',
         products: ['', '', '', '']
       }
@@ -304,7 +271,6 @@
        ===================================================================== */
     var I18N = {
       ko: {
-        heroHook: '강릉에서 만난\n고니의 작은 집',
         shop: '온라인 스토어',
         instagram: '인스타그램',
         introTitle: 'Maison Gony 는?',
@@ -327,12 +293,10 @@
         parkingValue: '가게 앞 1대 · 근처 공영주차장',
         naverBtn: '네이버지도',
         googleBtn: '구글맵',
-        phHero: '임시 이미지',
         phImage: '이미지 준비중',
         phStore: '매장 사진 준비중'
       },
       en: {
-        heroHook: 'Gony’s little house\nby the sea in Gangneung',
         shop: 'Online Shop',
         instagram: 'Instagram',
         introTitle: 'About Maison Gony',
@@ -355,12 +319,10 @@
         parkingValue: '1 spot in front · nearby public parking',
         naverBtn: 'Naver Map',
         googleBtn: 'Google Maps',
-        phHero: 'Placeholder',
         phImage: 'Image coming soon',
         phStore: 'Store photo coming soon'
       },
       zh: {
-        heroHook: '在江陵遇见的\n高尼的小家',
         shop: '线上商店',
         instagram: 'Instagram',
         introTitle: '关于 Maison Gony',
@@ -383,7 +345,6 @@
         parkingValue: '店前1个车位 · 附近公共停车场',
         naverBtn: 'Naver 地图',
         googleBtn: 'Google 地图',
-        phHero: '临时图片',
         phImage: '图片准备中',
         phStore: '店铺照片准备中'
       }
@@ -431,8 +392,11 @@
         }
       }
 
-      setImage('hero-media', CONFIG.images.hero, 'Maison Gony');
-      if (CONFIG.images.hero) { var t = $('hero-tag'); if (t) t.style.display = 'none'; }
+      var heroImg = $('hero-img');
+      if (heroImg) {
+        if (CONFIG.images.hero) { heroImg.src = CONFIG.images.hero; }
+        else { heroImg.style.display = 'none'; }
+      }
       setImage('store-media', CONFIG.images.store, 'Maison Gony store');
       (CONFIG.images.products || []).forEach(function (src, i) { setImage('p-media-' + i, src, ''); });
 
@@ -446,8 +410,7 @@
       document.querySelectorAll('[data-i18n]').forEach(function (el) {
         var k = el.getAttribute('data-i18n');
         if (d[k] == null) return;
-        if (k === 'heroHook') { el.innerHTML = d[k].split('\n').join('<br>'); }
-        else { el.textContent = d[k]; }
+        el.textContent = d[k];
       });
       var addr = $('v-address'); if (addr) addr.textContent = CONFIG.contact.address;
       document.querySelectorAll('.lang-btn').forEach(function (b) {
