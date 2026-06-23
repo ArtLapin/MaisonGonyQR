@@ -57,7 +57,7 @@
       display: flex; align-items: center; justify-content: space-between;
       padding: 15px 20px; border-bottom: 1px solid var(--line); background: var(--surface);
     }
-    .wordmark { font-size: 15px; letter-spacing: 0.14em; color: var(--ink); text-decoration: none; }
+    .wordmark { font-size: 15px; letter-spacing: 0.14em; color: var(--blue); text-decoration: none; }
     .lang { display: flex; gap: 10px; }
     .lang-btn {
       font: inherit; font-size: 12px; letter-spacing: 0.02em;
@@ -87,8 +87,9 @@
     .actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 22px 0 8px; }
 
     .btn {
-      display: block; text-align: center; text-decoration: none;
-      font-size: 19px; font-weight: 400; padding: 14px 16px;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; text-decoration: none;
+      font-size: 17px; font-weight: 400; padding: 14px 16px;
       border: 1px solid var(--blue); color: var(--blue); background: var(--surface);
       transition: opacity 0.15s ease;            /* 직각 모서리 (라운드 없음) */
     }
@@ -183,7 +184,7 @@
       <!-- 주요 링크 -->
       <section class="actions">
         <a class="btn" id="link-shop" target="_blank" rel="noopener" data-i18n="shop"></a>
-        <a class="btn" id="link-instagram" target="_blank" rel="noopener"><span data-i18n="instagram"></span> <span style="opacity:.65">@maisongony</span></a>
+        <a class="btn" id="link-instagram" target="_blank" rel="noopener"><span><span data-i18n="instagram"></span> <span style="opacity:.65">@maisongony</span></span></a>
       </section>
 
       <!-- 브랜드 소개 -->
