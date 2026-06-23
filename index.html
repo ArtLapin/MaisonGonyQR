@@ -87,7 +87,7 @@
     .actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 22px 0 8px; }
 
     .btn {
-      display: flex; align-items: center; justify-content: center;
+      display: flex; align-items: center; justify-content: center; gap: 7px;
       text-align: center; text-decoration: none;
       font-size: 17px; font-weight: 400; padding: 14px 16px;
       border: 1px solid var(--blue); color: var(--blue); background: var(--surface);
@@ -121,8 +121,9 @@
     .media span { font-size: 11px; }
 
     /* 인라인 아이콘 (외부 폰트 의존 없음) */
-    .ic, .ph-ic { stroke: currentColor; fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+    .ic, .ph-ic, .btn-ic { stroke: currentColor; fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
     .why-item svg.ic { width: 24px; height: 24px; flex: none; color: var(--blue); margin-top: 1px; }
+    .btn .btn-ic { width: 18px; height: 18px; flex: none; }
     .media svg.ph-ic { width: 24px; height: 24px; stroke-width: 1.4; }
 
     /* ====== 방문 안내 ====== */
@@ -250,8 +251,8 @@
           <div class="row"><dt data-i18n="parkingLabel"></dt><dd data-i18n="parkingValue"></dd></div>
         </dl>
         <div class="map-actions">
-          <a class="btn btn-ghost" id="link-naver" target="_blank" rel="noopener" data-i18n="naverBtn"></a>
-          <a class="btn btn-ghost" id="link-google" target="_blank" rel="noopener" data-i18n="googleBtn"></a>
+          <a class="btn" id="link-naver" target="_blank" rel="noopener"><svg class="btn-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 C8.1 2 5 5.1 5 9 c0 5.25 7 13 7 13 s7 -7.75 7 -13 c0 -3.9 -3.1 -7 -7 -7 z"/><circle cx="12" cy="9" r="2.5"/></svg><span data-i18n="naverBtn"></span></a>
+          <a class="btn" id="link-google" target="_blank" rel="noopener"><svg class="btn-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 C8.1 2 5 5.1 5 9 c0 5.25 7 13 7 13 s7 -7.75 7 -13 c0 -3.9 -3.1 -7 -7 -7 z"/><circle cx="12" cy="9" r="2.5"/></svg><span data-i18n="googleBtn"></span></a>
         </div>
       </section>
 
@@ -278,7 +279,7 @@
         shop:      'https://maisongony.com',
         instagram: 'https://www.instagram.com/maisongony',
         naverMap:  'https://map.naver.com/p/search/메종고니',
-        googleMap: 'https://www.google.com/maps/search/?api=1&query=강원특별자치도+강릉시+초당원길+19'
+        googleMap: 'https://www.google.com/maps/search/?api=1&query=메종고니'
       },
 
       // 방문 안내 (언어 공통값)
