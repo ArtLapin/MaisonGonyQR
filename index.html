@@ -104,6 +104,8 @@
       gap: 5px; color: #9AA3AE; text-align: center;
     }
     .media.filled { border: none; }
+    /* 제품 썸네일은 1:1 정사각 */
+    .p-card .media { aspect-ratio: 1 / 1; }
     /* 매장 사진은 잘림 없이 전체가 보이도록 (가로폭 100% · 원본 비율) */
     #store-media.filled img { height: auto !important; }
     .media span { font-size: 11px; }
@@ -186,22 +188,22 @@
         <h2 class="eyebrow" data-i18n="productsTitle"></h2>
         <div class="grid">
           <div class="p-card">
-            <div class="media" id="p-media-0" style="height:84px"><svg class="ph-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14"/><circle cx="8.5" cy="10" r="1.8"/><path d="M3 17 L9 12 L13 15 L17 11 L21 15"/></svg><span data-i18n="phImage">이미지 준비중</span></div>
+            <div class="media" id="p-media-0"><svg class="ph-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14"/><circle cx="8.5" cy="10" r="1.8"/><path d="M3 17 L9 12 L13 15 L17 11 L21 15"/></svg><span data-i18n="phImage">이미지 준비중</span></div>
             <div class="p-name">Poster &amp; Postcard</div>
             <div class="p-desc" data-i18n="p1desc"></div>
           </div>
           <div class="p-card">
-            <div class="media" id="p-media-1" style="height:84px"><svg class="ph-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14"/><circle cx="8.5" cy="10" r="1.8"/><path d="M3 17 L9 12 L13 15 L17 11 L21 15"/></svg><span data-i18n="phImage">이미지 준비중</span></div>
+            <div class="media" id="p-media-1"><svg class="ph-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14"/><circle cx="8.5" cy="10" r="1.8"/><path d="M3 17 L9 12 L13 15 L17 11 L21 15"/></svg><span data-i18n="phImage">이미지 준비중</span></div>
             <div class="p-name">Eco Bag &amp; T-shirt</div>
             <div class="p-desc" data-i18n="p2desc"></div>
           </div>
           <div class="p-card">
-            <div class="media" id="p-media-2" style="height:84px"><svg class="ph-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14"/><circle cx="8.5" cy="10" r="1.8"/><path d="M3 17 L9 12 L13 15 L17 11 L21 15"/></svg><span data-i18n="phImage">이미지 준비중</span></div>
+            <div class="media" id="p-media-2"><svg class="ph-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14"/><circle cx="8.5" cy="10" r="1.8"/><path d="M3 17 L9 12 L13 15 L17 11 L21 15"/></svg><span data-i18n="phImage">이미지 준비중</span></div>
             <div class="p-name">Ceramic Goods</div>
             <div class="p-desc" data-i18n="p3desc"></div>
           </div>
           <div class="p-card">
-            <div class="media" id="p-media-3" style="height:84px"><svg class="ph-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14"/><circle cx="8.5" cy="10" r="1.8"/><path d="M3 17 L9 12 L13 15 L17 11 L21 15"/></svg><span data-i18n="phImage">이미지 준비중</span></div>
+            <div class="media" id="p-media-3"><svg class="ph-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14"/><circle cx="8.5" cy="10" r="1.8"/><path d="M3 17 L9 12 L13 15 L17 11 L21 15"/></svg><span data-i18n="phImage">이미지 준비중</span></div>
             <div class="p-name">Local Souvenirs</div>
             <div class="p-desc" data-i18n="p4desc"></div>
           </div>
@@ -262,7 +264,7 @@
       images: {
         hero:     'assets/hero.webp',
         store:    'assets/store.webp',
-        products: ['', '', '', '']
+        products: ['assets/poster.webp', 'assets/ecobag.webp', 'assets/ceramic.webp', '']
       }
     };
 
