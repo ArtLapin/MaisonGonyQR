@@ -97,6 +97,13 @@
     .why-item:last-child { margin-bottom: 0; }
     .why-item p { font-size: 14px; line-height: 1.6; color: #3A3F47; }
 
+    /* ====== 영상 (유튜브 임베드 — 세로 쇼츠 9:16 비율) ====== */
+    .video {
+      position: relative; width: 100%; max-width: 300px; margin: 0 auto;
+      aspect-ratio: 9 / 16; background: #000; overflow: hidden;
+    }
+    .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
+
     .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .p-name { font-size: 14px; margin-top: 8px; }
     .p-desc { font-size: 11.5px; color: var(--muted); margin-top: 2px; }
@@ -187,6 +194,12 @@
         </div>
       </section>
 
+      <!-- 영상 (Why Gony? 와 What you'll find 사이) -->
+      <section class="section" id="video-section">
+        <h2 class="eyebrow" data-i18n="watchTitle"></h2>
+        <div class="video" id="video-embed"></div>
+      </section>
+
       <!-- 제품 미리보기 -->
       <section class="section">
         <h2 class="eyebrow" data-i18n="productsTitle"></h2>
@@ -269,7 +282,12 @@
         hero:     'assets/hero.webp',
         store:    'assets/store.webp',
         products: ['assets/poster.webp', 'assets/ecobag.webp', 'assets/ceramic.webp', 'assets/souvenir.webp']
-      }
+      },
+
+      // 유튜브 영상 — "Why Gony?" 와 "What you'll find" 사이에 표시됩니다.
+      // 영상/쇼츠의 ID만 넣으세요. 예) youtube.com/shorts/JpmbhHrTDeA → 'JpmbhHrTDeA'
+      // 비워두면("") 영상 섹션 전체가 자동으로 숨겨집니다.
+      youtube: 'JpmbhHrTDeA'
     };
 
     /* =====================================================================
@@ -285,6 +303,7 @@
         why1: '고니는 겨울마다 따뜻한 곳을 찾아 날아오는 철새입니다.',
         why2: '메종고니의 고니는 강릉에 머물며 여행자에게 작은 쉼을 건넵니다.',
         why3: '강릉의 자연과 계절, 바다와 일상이 고니의 이야기에 담깁니다.',
+        watchTitle: '영상으로 보기',
         productsTitle: 'What you’ll find',
         p1desc: '여행의 장면을 담은 일러스트',
         p2desc: '일상에서 쓰는 패브릭 제품',
@@ -311,6 +330,7 @@
         why1: 'Gony is a migratory bird that flies to warmer places each winter.',
         why2: 'Maison Gony’s Gony stays in Gangneung, offering travelers a small rest.',
         why3: 'Gangneung’s nature, seasons, sea and daily life live within Gony’s story.',
+        watchTitle: 'Watch',
         productsTitle: 'What you’ll find',
         p1desc: 'Illustrations of travel scenes',
         p2desc: 'Everyday fabric goods',
@@ -337,6 +357,7 @@
         why1: '高尼是每到冬天就飞往温暖之地的候鸟。',
         why2: 'Maison Gony 的高尼停留在江陵，为旅人带来片刻歇息。',
         why3: '江陵的自然、四季、大海与日常，都藏在高尼的故事里。',
+        watchTitle: '观看视频',
         productsTitle: '你会发现',
         p1desc: '描绘旅行场景的插画',
         p2desc: '日常使用的布艺单品',
@@ -381,6 +402,23 @@
       el.appendChild(img);
     }
 
+    function setVideo(id) {
+      var el = $('video-embed');
+      if (!el) return;
+      if (!id) {                                   // 영상 ID 없으면 섹션 숨김
+        var sec = $('video-section'); if (sec) sec.style.display = 'none';
+        return;
+      }
+      var f = document.createElement('iframe');
+      f.src = 'https://www.youtube-nocookie.com/embed/' + id;
+      f.title = 'Maison Gony';
+      f.loading = 'lazy';
+      f.allow = 'accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share';
+      f.referrerPolicy = 'strict-origin-when-cross-origin';
+      f.setAttribute('allowfullscreen', '');
+      el.appendChild(f);
+    }
+
     function applyConfig() {
       setHref('link-home', CONFIG.links.shop);
       setHref('link-shop', CONFIG.links.shop);
@@ -405,6 +443,7 @@
       }
       setImage('store-media', CONFIG.images.store, 'Maison Gony store');
       (CONFIG.images.products || []).forEach(function (src, i) { setImage('p-media-' + i, src, ''); });
+      setVideo(CONFIG.youtube);
 
       $('year').textContent = new Date().getFullYear();
     }
