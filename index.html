@@ -103,6 +103,19 @@
       aspect-ratio: 9 / 16; background: #000; overflow: hidden;
     }
     .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
+    /* 영상 커버(파사드) — 탭하면 실제 플레이어가 로드됩니다 */
+    .video-facade {
+      position: absolute; inset: 0; width: 100%; height: 100%; padding: 0; border: 0; cursor: pointer;
+      display: block; background-color: #000; background-size: cover; background-position: center; background-repeat: no-repeat;
+    }
+    .video-facade::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.22)); }
+    .video-play {
+      position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+      width: 62px; height: 62px; border-radius: 50%; background: rgba(0,0,0,0.55);
+      display: flex; align-items: center; justify-content: center; transition: background 0.15s ease;
+    }
+    .video-facade:hover .video-play { background: rgba(1,98,206,0.92); }   /* 호버 시 브랜드 블루 */
+    .video-play svg { width: 24px; height: 24px; fill: #fff; margin-left: 3px; }
 
     .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .p-name { font-size: 14px; margin-top: 8px; }
@@ -287,7 +300,12 @@
       // 유튜브 영상 — "Why Gony?" 와 "What you'll find" 사이에 표시됩니다.
       // 영상/쇼츠의 ID만 넣으세요. 예) youtube.com/shorts/JpmbhHrTDeA → 'JpmbhHrTDeA'
       // 비워두면("") 영상 섹션 전체가 자동으로 숨겨집니다.
-      youtube: 'JpmbhHrTDeA'
+      youtube: 'JpmbhHrTDeA',
+
+      // 영상 커버(썸네일) 이미지 — 유튜브 기본 썸네일 대신 우리가 고른 이미지를 노출합니다.
+      // 탭하면 그때 유튜브 플레이어가 자동재생됩니다. (같은 도메인 이미지라 중국 로밍 사용자도 커버는 보임)
+      // 비워두면("") 유튜브 기본 썸네일이 그대로 사용됩니다. 직접 만든 9:16 이미지를 assets/에 넣고 경로만 바꾸세요.
+      videoPoster: 'assets/store.webp'
     };
 
     /* =====================================================================
@@ -409,14 +427,30 @@
         var sec = $('video-section'); if (sec) sec.style.display = 'none';
         return;
       }
-      var f = document.createElement('iframe');
-      f.src = 'https://www.youtube-nocookie.com/embed/' + id;
-      f.title = 'Maison Gony';
-      f.loading = 'lazy';
-      f.allow = 'accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share';
-      f.referrerPolicy = 'strict-origin-when-cross-origin';
-      f.setAttribute('allowfullscreen', '');
-      el.appendChild(f);
+      function makePlayer(autoplay) {              // 유튜브 iframe 생성
+        var f = document.createElement('iframe');
+        f.src = 'https://www.youtube-nocookie.com/embed/' + id + (autoplay ? '?autoplay=1&playsinline=1&rel=0' : '');
+        f.title = 'Maison Gony';
+        f.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share';
+        f.referrerPolicy = 'strict-origin-when-cross-origin';
+        f.setAttribute('allowfullscreen', '');
+        return f;
+      }
+      var poster = CONFIG.videoPoster;
+      if (!poster) {                               // 커버 없으면 유튜브 기본 썸네일 임베드(지연 로딩)
+        var lf = makePlayer(false); lf.loading = 'lazy';
+        el.appendChild(lf);
+        return;
+      }
+      // 커버(파사드): 우리가 고른 이미지 + 재생 버튼 → 탭하면 그때 플레이어 자동재생
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'video-facade';
+      btn.style.backgroundImage = 'url("' + poster + '")';
+      btn.setAttribute('aria-label', (I18N[detectLang()] || I18N.en).watchTitle);
+      btn.innerHTML = '<span class="video-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>';
+      btn.addEventListener('click', function () { el.innerHTML = ''; el.appendChild(makePlayer(true)); });
+      el.appendChild(btn);
     }
 
     function applyConfig() {
